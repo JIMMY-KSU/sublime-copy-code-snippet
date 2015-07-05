@@ -9,6 +9,7 @@
 # Copyright (c) 2015, Socheat Sieng <socsieng@gmail.com>
 
 import re
+import os
 
 leading_space_exp = re.compile(r'^[\t ]*', re.M)
 
