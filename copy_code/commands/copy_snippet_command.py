@@ -11,7 +11,7 @@
 import re
 import os
 
-leading_space_exp = re.compile(r'^[\t ]*', re.M)
+leading_space_exp = re.compile(r'^[\t ]*(?=\S)', re.M)
 
 comment_styles = {
     '// %s': ['actionscript', 'c#', 'c++', 'c', 'd', 'go', 'java', 'json', 'javascript', 'objective-c++', 'objective-c', 'pascal', 'scala'],

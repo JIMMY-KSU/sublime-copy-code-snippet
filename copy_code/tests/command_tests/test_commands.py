@@ -152,9 +152,9 @@ class CopySnippetTestCase(TestCase):
         view = mock_sublime_view(regions, lambda sel: sel())
 
         command = commands.CopySnippetCommand(view, sublime)
-        normalized = command.normalize_indent('\t\thello\n\t    world\n    \tfoo', '\t', 4)
+        normalized = command.normalize_indent('\t\thello\n\t    world\n\n    \tfoo', '\t', 4)
 
-        expect(normalized).to_equal('\t\thello\n\t\tworld\n\t\tfoo')
+        expect(normalized).to_equal('\t\thello\n\t\tworld\n\n\t\tfoo')
 
     def test_should_extract_snippets_from_single_region_no_indent(self):
         sublime = mock_sublime()
@@ -165,6 +165,16 @@ class CopySnippetTestCase(TestCase):
         snippet = command.extract_snippet(' ', '// %s')
 
         expect(snippet).to_equal('function () {\n    doSomething();\n}')
+
+    def test_should_extract_snippets_from_single_region_with_blank_lines(self):
+        sublime = mock_sublime()
+        regions = mock_regions(['\t\thello\n\t    world\n\n    \tfoo'])
+        view = mock_sublime_view(regions, lambda sel: sel())
+
+        command = commands.CopySnippetCommand(view, sublime)
+        snippet = command.extract_snippet(' ', '// %s')
+
+        expect(snippet).to_equal('hello\nworld\n\nfoo')
 
     def test_should_extract_snippets_from_single_region_tab_indent(self):
         sublime = mock_sublime()
