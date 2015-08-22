@@ -14,8 +14,6 @@ import sublime
 import sublime_plugin
 import imp
 
-sys.path.append(os.path.dirname(os.path.realpath(__file__)))
-
 reloader_name = 'copy_code.package_util.reloader'
 
 try:
@@ -26,7 +24,7 @@ try:
 except:
     pass
 
-from copy_code import commands
+from .copy_code import commands
 
 class CopySnippetCommand(sublime_plugin.TextCommand):
     def __init__(self, view):

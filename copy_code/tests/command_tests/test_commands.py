@@ -11,8 +11,8 @@
 from preggy import expect
 from mock import Mock
 
-from copy_code.tests.base import TestCase
-from copy_code import commands
+from ..base import TestCase
+from ... import commands
 
 def mock_sys(platform = None):
     sys = Mock()

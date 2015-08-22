@@ -8,4 +8,4 @@
 # http://www.opensource.org/licenses/MIT-license
 # Copyright (c) 2015, Socheat Sieng <socsieng@gmail.com>
 
-from copy_code.commands.copy_snippet_command import CopySnippetCommand
+from .copy_snippet_command import CopySnippetCommand

@@ -5,7 +5,7 @@
 # http://www.opensource.org/licenses/MIT-license
 # Copyright (c) 2015, Socheat Sieng <socsieng@gmail.com>
 
-TESTS=copy_code/tests/command_tests
+TESTS=copy_code/tests
 
 # lists all available targets
 list:
